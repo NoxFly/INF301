@@ -7,14 +7,10 @@ def  find_key(txt, keys):
     key = 0
 
     keys_in_txt = False
-    for i in keys:
-        if i in txt:
-            keys_in_txt = True
 
     while not keys_in_txt:
         key += 1
         txt2 = uncrypt(txt, key)
-        print(txt2, key)
 
         for i in keys:
             if i in txt2:
