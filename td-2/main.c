@@ -28,34 +28,29 @@ void splice(char* str, int idx) {
 
 // encode selon la methode crypteSeq
 void encode(char uncoded[MAX_LEN], char encoded[MAX_LEN]) {
-	const int l = strlen(uncoded)-10;
-	char seq[26];
-	int j = 0;
+	const int l = strlen(uncoded);
+	char seq[150];
+	int j = 0; // longueur dynamique de seq
 
 	for (int i = 0; i < l; i++) {
 		char c = uncoded[i], c2;
 		int idx;
 
-		if (is_alpha(c) || 1) {
-			if ((idx = indexOf(seq, c)) > -1) { // recupere l'index de c dans seq
-				// dans la sequence
-				if (idx > 0) c2 = seq[idx - 1];
-				else c2 = seq[j];
+		if ((idx = indexOf(seq, c)) > -1) { // recupere l'index de c dans seq
+			// dans la sequence
+			if (idx > 0) c2 = seq[idx - 1];
+			else c2 = seq[j];
 
 
-				splice(seq, idx);
-			}
-			else {
-				// pas dans la sequence
-				if (i > 0) j++;
-				c2 = c;
-			}
-
-			seq[j] = c; // ajout du caractere dans la seq
+			splice(seq, idx);
 		}
 		else {
+			// pas dans la sequence
+			if (i > 0) j++;
 			c2 = c;
 		}
+
+		seq[j] = c; // ajout du caractere dans la seq
 
 		encoded[i] = c2; // ajout du caractere dans le message code
 	}
