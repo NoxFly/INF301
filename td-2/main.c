@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+#define MAX_LEN 1200
 
 // retourne si le caractere donne est une lettre (minuscule ou majuscule)
 int is_alpha(char c) {
@@ -8,7 +11,7 @@ int is_alpha(char c) {
 
 // retourne la position de c dans str. -1 si pas present
 int indexOf(char* str, char c) {
-	for (int i = 0; i < strlen(str); i++) {
+	for (unsigned int i = 0; i < strlen(str); i++) {
 		if (str[i] == c) return i;
 	}
 
@@ -112,9 +115,6 @@ int main(int argc, char** argv) {
 		printf("\n%s\n", txt); // texte de base
 		encode(txt, txt_encode); // encode le texte
 
-		//envoyer_recevoir("ok", reponse);
-		//envoyer_recevoir("start", reponse);
-		//envoyer_recevoir(txt_encode, reponse);
 
 		fclose(f);
 	}
