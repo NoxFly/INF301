@@ -19,19 +19,19 @@ typedef struct seq_t
 } Seq;
 
 /*
- * Initialise une sequence
+ * Initialise une sequence vide
  */
 void init_seq(Seq *seq);
 
 /*
- * Trouve la position d'un couple selon sa valeur dans une sequence
+ * Trouve la position d'un couple selon sa reference dans une sequence
  */
-int index(char val, Seq *seq);
+int pos(char ref, Seq *seq);
 
 /*
- * Trouve la reference d'un couple selon sa valeur dans une sequence
+ * Trouve la valeur d'un couple à une position donnée
  */
-char pos(char val, Seq *seq);
+char value_of(int idx, Seq *seq);
 
 /*
  * Ajoute un couple a la fin de la sequence
@@ -44,13 +44,13 @@ void append(Couple *couple, Seq *seq);
 void add(char val, Seq *seq);
 
 /*
- * Permute deux couples leurs reference
+ * Permute deux couples selon leurs position
  */
-void swap(char ref, char ref_p, Seq *seq);
+void swap(int idx, int idx_p, Seq *seq);
 
 /*
  * Permute un couple a la fin de la sequence selon sa reference
  */
-void swap_end(char ref, Seq *seq);
+void swap_end(int idx, Seq *seq);
 
 #endif
