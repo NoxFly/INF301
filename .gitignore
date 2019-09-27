@@ -1,3 +1,4 @@
 *.o
-appolab
-crypteSeqIO
+crypteSeq/crypteSeq/appolab
+crypteSeq/crypteSeq/crypteSeqIO
+nothwoods/nothwoods

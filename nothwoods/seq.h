@@ -24,7 +24,7 @@ typedef struct seq_t
 void init_seq(Seq *seq);
 
 /*
- * Trouve la position d'un couple selon sa reference dans une sequence
+ * Trouve la position d'un couple selon sa reference dans une sequence. Renvoie -1 si l'element n'existe pas dans la sequence.
  */
 int pos(char ref, Seq *seq);
 
@@ -36,7 +36,7 @@ char value_of(int idx, Seq *seq);
 /*
  * Ajoute un couple a la fin de la sequence
  */
-void append(Couple *couple, Seq *seq);
+void append(Couple couple, Seq *seq);
 
 /*
  * Crée un couple et l'ajoute a la fin de la sequence
