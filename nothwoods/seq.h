@@ -8,7 +8,7 @@
 typedef struct couple_t
 {
 	char reference;
-	char value;
+	char image;
 } Couple;
 
 /* Definition du type seq */
@@ -29,7 +29,7 @@ void init_seq(Seq *seq);
 int pos(char ref, Seq *seq);
 
 /*
- * Trouve la valeur d'un couple à une position donnée
+ * Trouve l'image d'un couple à une position donnée
  */
 char value_of(int idx, Seq *seq);
 
@@ -41,7 +41,7 @@ void append(Couple *couple, Seq *seq);
 /*
  * Crée un couple et l'ajoute a la fin de la sequence
  */
-void add(char val, Seq *seq);
+void add(char image, Seq *seq);
 
 /*
  * Permute deux couples selon leurs position
