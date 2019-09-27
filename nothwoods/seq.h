@@ -44,13 +44,13 @@ void append(Couple *couple, Seq *seq);
 void add(char image, Seq *seq);
 
 /*
- * Permute deux couples selon leurs position
+ * Permute les images de deux couples aux positions données
  */
 void swap(int idx, int idx_p, Seq *seq);
 
 /*
  * Permute un couple a la fin de la sequence selon sa reference
  */
-void swap_end(int idx, Seq *seq);
+void move_end(int idx, Seq *seq);
 
 #endif
