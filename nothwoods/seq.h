@@ -19,9 +19,6 @@ typedef struct seq_t
 } Seq;
 
 /*
- * Required functions: init, pos, append, add, swap_end
-
-/*
  * Initialise une sequence
  */
 void init_seq(Seq *seq);
