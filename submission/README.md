@@ -1,4 +1,4 @@
-# Apprentissage Par Problèmes 1 : Ydana wheya
+# Apprentissage Par Problèmes 1 : Ydana Wheya (Chere Alice)
 
 {{ intro }}
 

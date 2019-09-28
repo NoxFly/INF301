@@ -5,7 +5,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "type_char_seq.h"
+
 #include "caesar.h"
+#include "char_seq.h"
 
 #define APPOLAB_PORT 443
 #define APPOLAB_DEBUG false
@@ -23,8 +26,14 @@ void print_h(char const *text);
 int main(int argc, char **argv)
 {
     char reponse[MAXREP], message[MAXMSG];
+    char instructions_crypteSeq[MAXMSG];
     char appolab_id[MAXREP], appolab_password[MAXREP];
+
+    // Pour planB
     int key;
+
+    // Pour crypteSeq
+    Charseq cseq;
 
     if (argc != 3)
     {
@@ -90,15 +99,40 @@ int main(int argc, char **argv)
 	caesar_encrypt(message, "hasta la revolucion", -key);
 	envoyer_recevoir(message, reponse);
 
+	// Rem: la reponse inclus "Bonne réponse !\n\n" au debut, veut garder seulement
+	// le message de Bob vers Alice. Pout cela, on doit prendre compte des 18 caracteres
+	// qui precedent le debut du message code.
+
 	// Calculer la clef depuis la reponse
-	// Rem: la reponse inclus "Bonne réponse !\n\n" au debut, on
-	// selectionne donc la première lettre codee (indice 18).
 	key = caesar_key(reponse[18], 'C');
-	caesar_decrypt(message, reponse, key);
-	printf("Message decode: %s\n", message);
+	caesar_decrypt(instructions_crypteSeq, &reponse[18], key);
+	printf("Message decode (instructions crypteSeq) :\n%s\n", instructions_crypteSeq);
 
 	caesar_encrypt(message, "hasta la victoria siempre", -key);
 	envoyer_recevoir(message, reponse);
+
+
+    /*
+     * crypteSeq
+     */
+    print_h("crypteSeq");
+    authenticate(appolab_id, appolab_password);
+    envoyer_recevoir("load crypteSeq", reponse);
+	envoyer_recevoir("start", reponse);
+
+	char_seq_init(&cseq);
+
+	// on supprime le dernier retour chariot de instructions_crypteSeq pour
+	// que le message soit accepte par AppoLab
+	instructions_crypteSeq[strlen(instructions_crypteSeq) - 1] = '\0';
+
+	char_seq_encrypt(message, instructions_crypteSeq, &cseq);
+	envoyer_recevoir(message, reponse);
+
+	// Decrypter la reponse
+	char_seq_init(&cseq);
+	char_seq_decrypt(reponse, &reponse[83], &cseq);
+	printf("Message decode :\n%s\n", reponse);
 
     return 0;
 }
@@ -108,14 +142,14 @@ int main(int argc, char **argv)
  */
 void authenticate(char *id, char *password)
 {
-	char auth_command[256], response[MAXREP];
+	char auth_command[256], response_tmp[MAXREP];
 
 	printf(MAG "Connecting to server ...\n" RESET);
 	connexion("im2ag-appolab.u-ga.fr", APPOLAB_PORT);
 
 	printf(MAG "Authenticating ...\n" RESET);
 	sprintf(auth_command, "login %s %s", id, password);
-	envoyer_recevoir(auth_command, response);
+	envoyer_recevoir(auth_command, response_tmp);
 
 }
 
