@@ -2,3 +2,8 @@
 crypteSeq/crypteSeq/appolab
 crypteSeq/crypteSeq/crypteSeqIO
 nothwoods/nothwoods
+
+# For those using Eclipse
+nothwoods/.settings
+.cproject
+.project

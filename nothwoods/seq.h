@@ -1,5 +1,5 @@
-#ifndef __CHAR_SEQ_H__
-#define __CHAR_SEQ_H__
+#ifndef __SEQ_H__
+#define __SEQ_H__
 #include <stdio.h>
 
 #define MAXSEQ 512 /* taille maximale d'une sequence (nombre de caracteres dans le tableau ascii) */
