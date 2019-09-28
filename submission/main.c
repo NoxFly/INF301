@@ -10,6 +10,7 @@
 
 #include "caesar.h"
 #include "char_seq.h"
+#include "pair_seq.h"
 
 #define APPOLAB_PORT 443
 #define APPOLAB_DEBUG false

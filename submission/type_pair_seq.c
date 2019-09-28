@@ -1,11 +1,11 @@
 #include "type_pair_seq.h"
 
-void init_seq(Seq *seq)
+void pair_seq_init(Pairseq *seq)
 {
 	seq->length = 0;
 }
 
-int pos(char ref, Seq *seq)
+int pair_seq_pos(char ref, Pairseq *seq)
 {
 	int i;
 
@@ -17,33 +17,33 @@ int pos(char ref, Seq *seq)
 	return -1;
 }
 
-char value_of(int idx, Seq *seq)
+char pair_seq_value_of(int idx, Pairseq *seq)
 {
     return seq->items[idx].image;
 }
 
-void append(Couple couple, Seq *seq)
+void pair_seq_append(Pair couple, Pairseq *seq)
 {
     seq->items[seq->length] = couple;
     seq->length++;
 }
 
-void add(char image, Seq *seq)
+void pair_seq_add(char image, Pairseq *seq)
 {
-    Couple _new = {image, image};
-    append(_new, seq);
+    Pair _new = {image, image};
+    pair_seq_append(_new, seq);
 }
 
-void swap(int idx, int idx_p, Seq *seq) {
+void pair_seq_swap(int idx, int idx_p, Pairseq *seq) {
     char temp = seq->items[idx].image;
     seq->items[idx].image = seq->items[idx_p].image;
     seq->items[idx_p].image = temp;
 }
 
-void move_end(int idx, Seq *seq)
+void pair_seq_move_end(int idx, Pairseq *seq)
 {
     int i;
-    Couple tmp = seq->items[idx];
+    Pair tmp = seq->items[idx];
 
     // Decalage des elements à la droite de idx par 1 vers la gauche
     for (i = idx; i < seq->length; i++) {
