@@ -13,7 +13,7 @@
 #include "pair_seq.h"
 
 #define APPOLAB_PORT 443
-#define APPOLAB_DEBUG false
+#define APPOLAB_DEBUG true
 
 #define MAXMSG MAXREP
 
@@ -28,7 +28,7 @@ void print_h(char const *text);
 int main(int argc, char **argv)
 {
     char reponse[MAXREP], message[MAXMSG];
-    char instructions_crypteSeq[MAXMSG];
+    char msg_crypteSeq[MAXMSG], msg_nothwoods[MAXMSG];
     char appolab_id[MAXREP], appolab_password[MAXREP];
 
     // Pour planB
@@ -36,6 +36,9 @@ int main(int argc, char **argv)
 
     // Pour crypteSeq
     Charseq cseq;
+
+    // Pour Nothwoods
+    Pairseq pseq;
 
     if (argc != 3)
     {
@@ -106,8 +109,8 @@ int main(int argc, char **argv)
 
 	// Calculer la clef depuis la reponse
 	key = caesar_key(reponse[18], 'C');
-	caesar_decrypt(instructions_crypteSeq, &reponse[18], key);
-	printf("Message decode (instructions crypteSeq) :\n%s\n", instructions_crypteSeq);
+	caesar_decrypt(msg_crypteSeq, &reponse[18], key);
+	printf("Message decode (instructions crypteSeq) :\n%s\n", msg_crypteSeq);
 
 	caesar_encrypt(message, "hasta la victoria siempre", -key);
 	envoyer_recevoir(message, reponse);
@@ -125,9 +128,9 @@ int main(int argc, char **argv)
 
 	// on supprime le dernier retour chariot de instructions_crypteSeq pour
 	// que le message soit accepte par AppoLab
-	instructions_crypteSeq[strlen(instructions_crypteSeq) - 1] = '\0';
+	msg_crypteSeq[strlen(msg_crypteSeq) - 1] = '\0';
 
-	char_seq_encrypt(message, instructions_crypteSeq, &cseq);
+	char_seq_encrypt(message, msg_crypteSeq, &cseq);
 	envoyer_recevoir(message, reponse);
 
 	// Decrypter la reponse
@@ -142,9 +145,17 @@ int main(int argc, char **argv)
     print_h("Nothwoods");
     authenticate(appolab_id, appolab_password);
     envoyer_recevoir("load Nothwoods", reponse);
+
+    char_seq_init(&cseq);
+    char_seq_decrypt(msg_nothwoods, reponse, &cseq);
+    printf("Message decode (instructions Nothwoods) :\n%s\n", msg_nothwoods);
+
+    pair_seq_init(&pseq);
+    pair_seq_encrypt(message, msg_nothwoods, &pseq);
 	envoyer_recevoir("start", reponse);
+	envoyer_recevoir(message, reponse);
 
-
+	printf("Reponse :\n%s\n", reponse);
 
     return 0;
 }
