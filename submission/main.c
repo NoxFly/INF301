@@ -6,6 +6,7 @@
 #include <string.h>
 
 #include "type_char_seq.h"
+#include "type_pair_seq.h"
 
 #include "caesar.h"
 #include "char_seq.h"
@@ -75,8 +76,7 @@ int main(int argc, char **argv)
     // Decodage des cinq messages envoyes par le serveur
     for (int i = 0; i < 5; i++) {
     	caesar_decrypt(message, reponse, 5);
-    	printf("Message recu:\n%s\n", reponse);
-    	printf("Message decode:\n%s\n", message);
+    	printf("Sending message: %d of 5\n", i + 1);
     	envoyer_recevoir(message, reponse);
     }
 
@@ -133,6 +133,17 @@ int main(int argc, char **argv)
 	char_seq_init(&cseq);
 	char_seq_decrypt(reponse, &reponse[83], &cseq);
 	printf("Message decode :\n%s\n", reponse);
+
+
+    /*
+     * Nothwoods
+     */
+    print_h("Nothwoods");
+    authenticate(appolab_id, appolab_password);
+    envoyer_recevoir("load Nothwoods", reponse);
+	envoyer_recevoir("start", reponse);
+
+
 
     return 0;
 }
