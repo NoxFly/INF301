@@ -1,4 +1,4 @@
-#include "seq.h"
+#include "type_seq.h"
 
 void init_seq(Seq *seq)
 {

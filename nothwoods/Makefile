@@ -5,11 +5,13 @@ EXEC=nothwoods
 
 all: $(EXEC)
 
-seq.o: seq.c seq.h
+main.o: main.c nothwoods.h
 
-nothwoods.o: nothwoods.c seq.h
+type_seq.o: type_seq.c type_seq.h
 
-$(EXEC): seq.o nothwoods.o
+nothwoods.o: nothwoods.c nothwoods.h type_seq.h
+
+$(EXEC): main.o type_seq.o nothwoods.o
 	$(CC) $(CFLAGS) $^ -o $(EXEC)
 
 %.o: %.c

@@ -4,6 +4,7 @@ crypteSeq/crypteSeq/crypteSeqIO
 nothwoods/nothwoods
 
 # For those using Eclipse
-nothwoods/.settings
+.settings
 .cproject
 .project
+language.settings.xml
