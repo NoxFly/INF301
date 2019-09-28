@@ -38,7 +38,67 @@ int main(int argc, char **argv)
 
     mode_debug(APPOLAB_DEBUG);
 
-    // validate appolab exercices
+
+    /*
+     * projetX
+     */
+    print_h("projetX");
+    authenticate(appolab_id, appolab_password);
+    envoyer_recevoir("load projetX", reponse);
+    envoyer_recevoir("help", reponse);
+
+    // Decrypter la reponse grace a l'algorithme de Caesar (decalage par 5)
+    caesar_decrypt(message, reponse, 5);
+    printf("Message decode:\n%s\n", message);
+
+    envoyer_recevoir("start", reponse);
+    envoyer_recevoir("Veni, vidi, vici", reponse);
+
+
+    /*
+     * decrypte-v1
+     */
+    print_h("decrypte-v1");
+    authenticate(appolab_id, appolab_password);
+    envoyer_recevoir("load decrypte-v1", reponse);
+    envoyer_recevoir("start", reponse);
+
+    // Decodage des cinq messages envoyes par le serveur
+    for (int i = 0; i < 5; i++) {
+    	caesar_decrypt(message, reponse, 5);
+    	printf("Message recu:\n%s\n", reponse);
+    	printf("Message decode:\n%s\n", message);
+    	envoyer_recevoir(message, reponse);
+    }
+
+
+    /*
+     * planB
+     */
+    print_h("planB");
+    authenticate(appolab_id, appolab_password);
+    envoyer_recevoir("load planB", reponse);
+    envoyer_recevoir("start", reponse);
+
+	// Lire message code
+	envoyer_recevoir("aide", reponse);
+
+	// Calculer la clef
+	key = caesar_key(reponse[0], 'C');
+
+	// Coder "hasta la revolucion" selon la clef calculee
+	caesar_encrypt(message, "hasta la revolucion", -key);
+	envoyer_recevoir(message, reponse);
+
+	// Calculer la clef depuis la reponse
+	// Rem: la reponse inclus "Bonne réponse !\n\n" au debut, on
+	// selectionne donc la première lettre codee (indice 18).
+	key = caesar_key(reponse[18], 'C');
+	caesar_decrypt(message, reponse, key);
+	printf("Message decode: %s\n", message);
+
+	caesar_encrypt(message, "hasta la victoria siempre", -key);
+	envoyer_recevoir(message, reponse);
 
     return 0;
 }
