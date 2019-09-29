@@ -5,10 +5,14 @@ Note : Tout les algorithmes ci dessous ont été réalisé sous LateX
 
 # Cesar
 ![](Algo_repos/cesar.JPG)
+
+## Algorithmes complémentaires
 ![](Algo_repos/double_algo2.JPG)
 
 # cryptSeq
-![](Algo_repos/cryptSeq.JPG)
+<img src="Algo_repos/cryptSeq.JPG" width = 100>
+
+## Algorithmes complémentaires
 ![](Algo_repos/double_algo.JPG)
 
 
