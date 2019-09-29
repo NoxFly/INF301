@@ -4,7 +4,7 @@ Voici les différents algorithmes qui ont été implémenté afin de compléter 
 Note : Tout les algorithmes ci dessous ont été réalisé sous LateX
 
 # Cesar
-<img src="(Algo_repos/cesar.JPG" width = 500>
+<img src="Algo_repos/cesar.JPG" width = 500>
 
 ## Algorithmes complémentaires
 <img src="Algo_repos/double_algo2.JPG" width = 500>
@@ -21,4 +21,4 @@ Note : Tout les algorithmes ci dessous ont été réalisé sous LateX
 
 
 # NorthWoods
-<img src="Algo_repos/Northwoods.JPG" width = 500>
+<img src="Algo_repos/NorthWoods.JPG" width = 500>
