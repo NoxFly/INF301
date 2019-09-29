@@ -13,7 +13,7 @@
 #include "pair_seq.h"
 
 #define APPOLAB_PORT 443
-#define APPOLAB_DEBUG true
+#define APPOLAB_DEBUG false
 
 #define MAXMSG MAXREP
 
