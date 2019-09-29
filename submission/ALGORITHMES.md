@@ -20,5 +20,5 @@ Note : Tout les algorithmes ci dessous ont été réalisé sous LateX
 <img src="Algo_repos/decryptSeq.JPG" width = 500>
 
 
-# NorthWoods
+# Northwoods
 <img src="Algo_repos/NorthWoods.JPG" width = 500>
