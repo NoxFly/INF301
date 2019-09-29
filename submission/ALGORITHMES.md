@@ -4,21 +4,21 @@ Voici les différents algorithmes qui ont été implémenté afin de compléter 
 Note : Tout les algorithmes ci dessous ont été réalisé sous LateX
 
 # Cesar
-![](Algo_repos/cesar.JPG)
+<img src="(Algo_repos/cesar.JPG" width = 500>
 
 ## Algorithmes complémentaires
-![](Algo_repos/double_algo2.JPG)
+<img src="Algo_repos/double_algo2.JPG" width = 500>
 
 # cryptSeq
-<img src="Algo_repos/cryptSeq.JPG" width = 100>
+<img src="Algo_repos/cryptSeq.JPG" width = 500>
 
 ## Algorithmes complémentaires
-![](Algo_repos/double_algo.JPG)
+<img src="Algo_repos/double_algo.JPG" width = 500>
 
 
 # decryptSeq (avec cryptSeq ?)
-![](Algo_repos/decryptSeq.JPG)
+<img src="Algo_repos/decryptSeq.JPG" width = 500>
 
 
 # NorthWoods
-![](Algo_repos/Northwoods.JPG)
+<img src="Algo_repos/Northwoods.JPG" width = 500>
