@@ -26,7 +26,7 @@ Un exécutable sera crée dans le même répertoire. Pour lancer le programme, v
 ./app1 <identifiant_appolab> <mot_de_passe_appolab>
 ```
 
-Ce programme validera automatiquement les exercices suivants sur AppoLab: _projetX_, _decrypte-v1_, _planB_, _crypteSeq_, (Nothwoods partiellement implémenté - voir section Bugs connus ci-dessous).
+Ce programme validera automatiquement les exercices suivants sur AppoLab: _projetX_, _decrypte-v1_, _planB_, _crypteSeq_, (Nothwoods partiellement implémenté - voir section Bugs connus ci-dessous). Ces algorithmes sont décrits dans le fichier `ALGORITHME.md`.
 
 
 ## Description des packetages
@@ -45,11 +45,11 @@ Pour garder les implémentations des différentes techniques de cryptage sépar�
 
   Rem: Afin d’éviter des conflits entre les séquences de caractères et les séquences de couples, nous avons préfixé toutes les fonction de manipulation des séquences de caractères par `char_seq_`.
 
-- `char_seq.h` et `char_sec.c` contiennent les fonction additionnel nécessaire à l'algorithme cryptseq 
+- `char_seq.h` et `char_sec.c` contiennent les implémentations des fonctions nécessaires pour l'utilisation de l'algorithme cryptseq.
 
-- `type_pair_sec.h` et `type_pair_sec.c` contienne l'implémentation du type et des fonctions de manipulation de séquences de pair de caractères, nécessaire pour l'implémentation de l'algorithme Northwoods
+- `type_pair_sec.h` et `type_pair_sec.c` contiennent l'implémentation du type et des fonctions de manipulation de séquences de couples de caractères, nécessaire pour l'implémentation de l'algorithme Northwoods.
 
-- `pair_sec.h` et `pair_sec.c` contiennent les fonction additionnelles nécessaire pour la réalisation de l'exercice Northwoods
+- `pair_sec.h` et `pair_sec.c` contiennent les implémentations des fonction nécessaire pour la réalisation de l'exercice Nothwoods.
 
 ## Bugs connus
 
