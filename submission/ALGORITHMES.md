@@ -4,13 +4,17 @@ Voici les différents algorithmes qui ont été implémenté afin de compléter 
 Note : Tout les algorithmes ci dessous ont été réalisé sous LateX
 
 # Cesar
-
-# projetX
-
-# planB
+![](Algo_repos/cesar.JPG)
+![](Algo_repos/double_algo2.JPG)
 
 # cryptSeq
+![](Algo_repos/cryptSeq.JPG)
+![](Algo_repos/double_algo.JPG)
+
 
 # decryptSeq (avec cryptSeq ?)
+![](Algo_repos/decryptSeq.JPG)
+
 
 # NorthWoods
+![](Algo_repos/Northwoods.JPG)
