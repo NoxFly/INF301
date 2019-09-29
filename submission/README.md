@@ -50,7 +50,6 @@ Pour garder les implémentations des différentes techniques de cryptage sépar�
 - `type_pair_sec.h` et `type_pair_sec.c` contienne l'implémentation du type et des fonctions de manipulation de séquences de pair de caractères, nécessaire pour l'implémentation de l'algorithme Northwoods
 
 - `pair_sec.h` et `pair_sec.c` contiennent les fonction additionnelles nécessaire pour la réalisation de l'exercice Northwoods
-\TO BE COMPLETED
 
 ## Bugs connus
 
